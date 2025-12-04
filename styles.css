@@ -1,0 +1,36 @@
+/* Custom styles that extend Tailwind */
+@layer components {
+    .terminal-link {
+        @apply flex justify-between items-center bg-gray-900 border border-gray-700 text-orange-400 p-4 hover:bg-orange-400 hover:text-black transition-colors;
+    }
+    
+    .terminal-link-code {
+        @apply font-bold w-24;
+    }
+    
+    .terminal-link-desc {
+        @apply flex-grow text-gray-300 hover:text-black;
+    }
+    
+    .terminal-link-arrow {
+        @apply font-bold;
+    }
+    .cursor-blink {
+        animation: blink 1s step-end infinite;
+    }
+    
+    @keyframes blink {
+        50% { opacity: 0; }
+    }
+
+    /* Command input styling */
+    #commandInput {
+        caret-color: #f97316; /* orange-400 */
+        font-family: monospace;
+    }
+
+    #commandInput::placeholder {
+        color: #6b7280; /* gray-500 */
+        opacity: 0.7;
+    }
+}
