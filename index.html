@@ -3,241 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Castlemore Road Strategies | Terminal</title>
-    <style>
-        :root {
-            --bb-black: #121212; /* Slightly softer than pure black for screens */
-            --bb-orange: #ff9800; /* Classic Terminal Amber/Orange */
-            --bb-white: #e0e0e0;
-            --bb-blue: #03a9f4;
-            --bb-green: #4caf50;
-            --bb-red: #f44336;
-            --bb-gray: #333333;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            background-color: #000000;
-            color: var(--bb-orange);
-            font-family: 'Courier New', Courier, monospace; /* Classic monospaced look */
-            margin: 0;
-            padding: 0;
-            font-size: 14px;
-            line-height: 1.4;
-        }
-
-        /* Top Status Bar */
-        .top-bar {
-            background-color: var(--bb-blue);
-            color: #000;
-            padding: 5px 10px;
-            display: flex;
-            justify-content: space-between;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        /* Command Line Input Simulation */
-        .command-line {
-            background-color: #222;
-            color: var(--bb-white);
-            padding: 10px;
-            border-bottom: 1px solid var(--bb-gray);
-            display: flex;
-            align-items: center;
-        }
-
-        .command-prompt {
-            color: var(--bb-orange);
-            margin-right: 10px;
-            font-weight: bold;
-        }
-
-        .cursor {
-            display: inline-block;
-            width: 8px;
-            height: 15px;
-            background-color: var(--bb-orange);
-            animation: blink 1s step-end infinite;
-        }
-
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
-
-        /* Main Grid Layout */
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 0 10px;
-        }
-
-        /* Header Section */
-        .header {
-            border: 1px solid var(--bb-orange);
-            padding: 20px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .header h1 {
-            margin: 0;
-            font-size: 24px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .header p {
-            color: var(--bb-white);
-            margin-top: 5px;
-            font-size: 12px;
-        }
-
-        /* Market Data Ticker (Static Simulation) */
-        .market-ticker {
-            display: flex;
-            justify-content: space-between;
-            border-bottom: 1px solid var(--bb-gray);
-            padding: 5px 0;
-            margin-bottom: 20px;
-            font-size: 12px;
-            color: var(--bb-white);
-        }
-
-        .ticker-item span.up { color: var(--bb-green); }
-        .ticker-item span.down { color: var(--bb-red); }
-
-        /* Link Buttons (Styled as Data Rows) */
-        .links-section {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .terminal-link {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #111;
-            border: 1px solid var(--bb-gray);
-            color: var(--bb-orange);
-            text-decoration: none;
-            padding: 12px 15px;
-            transition: all 0.2s ease;
-        }
-
-        .terminal-link:hover {
-            background-color: var(--bb-orange);
-            color: #000;
-            border-color: var(--bb-orange);
-            cursor: pointer;
-        }
-
-        .link-code {
-            font-weight: bold;
-            margin-right: 15px;
-            min-width: 80px;
-        }
-
-        .link-desc {
-            flex-grow: 1;
-            color: var(--bb-white);
-        }
-
-        .terminal-link:hover .link-desc {
-            color: #000;
-        }
-
-        .link-arrow {
-            font-weight: bold;
-        }
-
-        /* Footer */
-        .footer {
-            margin-top: 40px;
-            text-align: center;
-            font-size: 10px;
-            color: #666;
-            border-top: 1px solid #333;
-            padding-top: 10px;
-        }
-
-    </style>
+    <title>Financial Terminal Linktree</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
 </head>
-<body>
+<body class="bg-black text-orange-400 font-mono">
+    <custom-navbar></custom-navbar>
 
-    <div class="top-bar">
-        <span>CASTLEMORE RD <span style="background:#000; color:var(--bb-blue); padding:0 4px;">GO</span></span>
-        <span id="clock">12:00:00</span>
-    </div>
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <!-- Terminal Header -->
+        <div class="border border-orange-400 p-6 mb-8 text-center">
+            <h1 class="text-2xl md:text-3xl uppercase tracking-wider mb-2">CASTLEMORE ROAD STRATEGIES</h1>
+            <p class="text-gray-300 text-sm">Link Tree Command Line Interface</p>
+</div>
 
-    <div class="command-line">
-        <span class="command-prompt">COMMAND:</span>
-        <span>LINK_TREE &lt;GO&gt;</span>
-        <span class="cursor"></span>
-    </div>
-
-    <div class="container">
-        
-        <div class="header">
-            <h1>CASTLEMORE ROAD STRATEGIES</h1>
-            <p>INSTITUTIONAL GRADE RESEARCH & ANALYSIS</p>
+        <!-- Market Ticker -->
+        <div class="flex justify-between border-b border-gray-700 py-2 mb-6 text-gray-300 text-xs md:text-sm overflow-x-auto">
+            <div class="whitespace-nowrap px-2">SPX <span class="text-green-500">+0.45%</span></div>
+            <div class="whitespace-nowrap px-2">NDX <span class="text-red-500">-0.12%</span></div>
+            <div class="whitespace-nowrap px-2">RTY <span class="text-red-500">-0.85%</span></div>
+<div class="whitespace-nowrap px-2">UST10Y <span class="text-green-500">4.15%</span></div>
+            <div class="whitespace-nowrap px-2">GOLD <span class="text-green-500">+0.32%</span></div>
+            <div class="whitespace-nowrap px-2">BTC <span class="text-red-500">-2.45%</span></div>
         </div>
 
-        <div class="market-ticker">
-            <div class="ticker-item">SPX <span class="up">+0.45%</span></div>
-            <div class="ticker-item">NDX <span class="down">-0.12%</span></div>
-            <div class="ticker-item">VIX <span class="up">+1.20%</span></div>
-            <div class="ticker-item">UST10Y <span class="up">4.15%</span></div>
+        <!-- Links Section -->
+        <div class="space-y-3 mb-8">
+            <a href="#" class="flex justify-between items-center bg-gray-900 border border-gray-700 text-orange-400 p-4 hover:bg-orange-400 hover:text-black transition-colors">
+                <span class="font-bold w-24">SUBSTACK</span>
+                <span class="flex-grow text-gray-300 hover:text-black">Read the latest Research Notes</span>
+                <span class="font-bold">&gt;&gt;</span>
+            </a>
+
+            <a href="#" class="flex justify-between items-center bg-gray-900 border border-gray-700 text-orange-400 p-4 hover:bg-orange-400 hover:text-black transition-colors">
+                <span class="font-bold w-24">DASHBOARD</span>
+                <span class="flex-grow text-gray-300 hover:text-black">View Proprietary Model</span>
+<span class="font-bold">&gt;&gt;</span>
+            </a>
+            <a href="#" class="flex justify-between items-center bg-gray-900 border border-gray-700 text-orange-400 p-4 hover:bg-orange-400 hover:text-black transition-colors">
+                <span class="font-bold w-24">DEMO</span>
+                <span class="flex-grow text-gray-300 hover:text-black">Public Demonstration of Dashboard Here</span>
+                <span class="font-bold">&gt;&gt;</span>
+            </a>
+            <a href="#" class="flex justify-between items-center bg-gray-900 border border-gray-700 text-orange-400 p-4 hover:bg-orange-400 hover:text-black transition-colors">
+                <span class="font-bold w-24">REAL ESTATE</span>
+                <span class="flex-grow text-gray-300 hover:text-black">Tenant Screening & Rent Reporting</span>
+                <span class="font-bold">&gt;&gt;</span>
+            </a>
+<a href="#" class="flex justify-between items-center bg-gray-900 border border-gray-700 text-orange-400 p-4 hover:bg-orange-400 hover:text-black transition-colors">
+<span class="font-bold w-24">CONTACT</span>
+                <span class="flex-grow text-gray-300 hover:text-black">Institutional Inquiries (Responded Within 48 Hours)</span>
+<span class="font-bold">&gt;&gt;</span>
+            </a>
         </div>
-
-        <div class="links-section">
-            
-            <a href="https://your-substack-link.com" class="terminal-link">
-                <span class="link-code">SUBSTACK</span>
-                <span class="link-desc">Read the latest Research Notes</span>
-                <span class="link-arrow">&gt;&gt;</span>
-            </a>
-
-            <a href="#" class="terminal-link">
-                <span class="link-code">DASHBOARD</span>
-                <span class="link-desc">Live Market Scanners (Beta)</span>
-                <span class="link-arrow">&gt;&gt;</span>
-            </a>
-
-            <a href="#" class="terminal-link">
-                <span class="link-code">MODELS</span>
-                <span class="link-desc">Proprietary Trading Signals</span>
-                <span class="link-arrow">&gt;&gt;</span>
-            </a>
-
-            <a href="#" class="terminal-link">
-                <span class="link-code">CONTACT</span>
-                <span class="link-desc">Institutional Inquiries</span>
-                <span class="link-arrow">&gt;&gt;</span>
-            </a>
-
+        <!-- Terminal Command Line -->
+        <div class="bg-gray-800 text-white p-3 flex items-center mb-8">
+            <span class="text-orange-400 font-bold mr-3">COMMAND:</span>
+            <input type="text" id="commandInput" class="bg-transparent border-none outline-none flex-grow text-white" 
+                   placeholder="Type 'help' for options" autocomplete="off">
+            <span class="inline-block w-2 h-4 bg-orange-400 ml-1 animate-pulse"></span>
         </div>
+</div>
 
-        <div class="footer">
-            <p>:: CASTLEMORE ROAD STRATEGIES © 2025 :: BRAMPTON, ON ::</p>
-            <p>DATA DELAYED 15 MIN</p>
-        </div>
-    </div>
-
+    <custom-footer></custom-footer>
     <script>
-        // Simple Clock Script
-        function updateClock() {
-            const now = new Date();
-            const timeString = now.toLocaleTimeString('en-US', { hour12: false });
-            document.getElementById('clock').innerText = timeString + " EST";
-        }
-        setInterval(updateClock, 1000);
-        updateClock();
+        feather.replace();
     </script>
-
+<script src="https://huggingface.co/deepsite/deepsite-badge.js"></script>
 </body>
 </html>
