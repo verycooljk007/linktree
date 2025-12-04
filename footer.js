@@ -14,7 +14,7 @@ class CustomFooter extends HTMLElement {
                 }
             </style>
             <div class="footer">
-                <p>:: CASTLEMORE ROAD STRATEGIES © ${new Date().getFullYear()} :: BRAMPTON, ON ::</p>
+                <p>:: CASTLEMORE ROAD STRATEGIES © ${new Date().getFullYear()} :: TORONTO, ON ::</p>
                 <p>DATA DELAYED 15 MIN</p>
             </div>
         `;
